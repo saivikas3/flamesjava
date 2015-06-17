@@ -37,15 +37,31 @@ public class Main {
 	
 	protected static String flames(String nameA, String nameB) {
 		int lengthA, lengthB;
+		int n,i;
+		int count=0;
+		String tempA, tempB;
+		String removed;
+		String FLAMES = "flames";
 		
 		lengthA = nameA.length();
 		lengthB = nameB.length();
 		
 		if(lengthA < lengthB) {
-			
+			tempA = nameA;
+			tempB = nameB;
 		} else {
-			
+			tempA = nameB;
+			tempB = nameA;
 		}
+		// remove the common characters
+		removed = removeCommon(tempA, tempB, 0, 0);
+		//store the length in n
+		n = removed.length();
+		
+		for(count=0;count<5;count++) {
+			removed = 
+		}
+		
 	}
 	public static void main(String[] args) {
 		
