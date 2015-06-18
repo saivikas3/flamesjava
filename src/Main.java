@@ -1,5 +1,18 @@
 
 public class Main {
+	
+	protected static char[] delCharFromArray(char[] original, int location_to_remove)
+	{
+		char[] result = new char[original.length-1];
+		int last_insert = 0;
+		for (int i = 0; i < original.length; i++){
+			if (i == location_to_remove)
+				continue;
+
+			result[last_insert++] = original[i];
+		}
+		return result;
+	}
 
 	protected static String removeCommon(String oldFirst, String oldSecond, int oldX, int oldY) {
 		int newY, newX;
@@ -35,13 +48,13 @@ public class Main {
 		
 	}
 	
-	protected static String flames(String nameA, String nameB) {
+	protected static char[] flames(String nameA, String nameB) {
 		int lengthA, lengthB;
-		int n,i;
+		int n,i,m;
 		int count=0;
 		String tempA, tempB;
 		String removed;
-		String FLAMES = "flames";
+		char[] flamesArray = "flames".toCharArray();
 		
 		lengthA = nameA.length();
 		lengthB = nameB.length();
@@ -56,15 +69,30 @@ public class Main {
 		// remove the common characters
 		removed = removeCommon(tempA, tempB, 0, 0);
 		//store the length in n
-		n = removed.length();
-		
+		n = removed.length()-1;
+		//set starting pointer to 0
+		i=0;
+		//repeat five times
 		for(count=0;count<5;count++) {
-			removed = 
+			
+			if(n>=flamesArray.length)
+				n%=flamesArray.length;
+			
+			m=n+i;
+			if(m>=flamesArray.length)
+				m%=flamesArray.length;
+			
+			flamesArray = delCharFromArray(flamesArray, m);
+			i=m;
+			
+			
 		}
+		
+		return flamesArray;
 		
 	}
 	public static void main(String[] args) {
 		
-		System.out.println();
+		System.out.println(flames("vikas","saivikas"));
 	}
 }
