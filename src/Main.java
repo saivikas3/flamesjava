@@ -117,7 +117,7 @@ public class Main {
 		case 'l': resultToPrint = "Love"; 
 		break;
 		
-		case 'a': resultToPrint = "Ancestors"; 
+		case 'a': resultToPrint = "Affection"; 
 		break;
 		
 		case 'm': resultToPrint = "Marriage"; 
