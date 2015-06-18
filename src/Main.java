@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 public class Main {
 	
@@ -93,6 +95,45 @@ public class Main {
 	}
 	public static void main(String[] args) {
 		
-		System.out.println(flames("vikas","saivikas"));
+		String name1, name2;
+		char[] answer;
+		String resultToPrint;
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("This utility checks relationship compatibility between two people.");
+		
+		System.out.println("Enter the first person's name:");
+		name1 = input.nextLine();
+		
+		System.out.println("Enter the second person's name:");
+		name2 = input.nextLine();
+		
+		answer = flames(name1, name2);
+		
+		switch(answer[0]) {
+		case 'f': resultToPrint = "Friends"; 
+		break;
+		
+		case 'l': resultToPrint = "Love"; 
+		break;
+		
+		case 'a': resultToPrint = "Ancestors"; 
+		break;
+		
+		case 'm': resultToPrint = "Marriage"; 
+		break;
+		
+		case 'e': resultToPrint = "Enemies"; 
+		break;
+		
+		case 's': resultToPrint = "Siblings"; 
+		break;
+		
+		default: resultToPrint = "invalid input";
+		break;
+		
+		}
+		
+		System.out.println(resultToPrint);
 	}
 }
